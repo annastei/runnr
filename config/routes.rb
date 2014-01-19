@@ -1,4 +1,5 @@
 Runnr::Application.routes.draw do
+  root 'workouts#index'
   resources :workouts
 
   # The priority is based upon order of creation: first created -> highest priority.
