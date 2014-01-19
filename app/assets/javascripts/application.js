@@ -13,15 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require bootstrap-datepicker
 //= require turbolinks
 //= require_tree .
 
 $(document).ready(function(){
-$('.datepicker').datepicker({
-          format: "yyyy-mm-dd",
-          todayHighlight: true,
-          todayBtn: 'linked',
-          autoclose: true
-      });
 });
