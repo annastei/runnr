@@ -13,6 +13,7 @@ group :production do
 end
 
 gem 'haml-rails'
+gem 'twitter-bootstrap-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
