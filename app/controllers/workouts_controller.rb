@@ -1,6 +1,27 @@
 class WorkoutsController < ApplicationController
   before_action :set_workout, only: [:show, :edit, :update, :destroy]
 
+  def count
+    @count = Workout.count
+    respond_to do |format|
+      format.json { render json: @count }
+    end
+  end
+
+  def average_speed
+    @average_speed = Workout.average_speed
+    respond_to do |format|
+      format.json { render json: @average_speed}
+    end
+  end
+
+  def average_per_week
+    @average_per_week = Workout.average_per_week
+    respond_to do |format|
+      format.json { render json: @average_per_week}
+    end
+  end
+
   # GET /workouts
   # GET /workouts.json
   def index

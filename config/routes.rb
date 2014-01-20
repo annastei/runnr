@@ -1,5 +1,10 @@
 Runnr::Application.routes.draw do
   root 'workouts#index'
+
+  get 'workouts/count' => 'workouts#count', as: :count
+  get 'workouts/average_speed' => 'workouts#average_speed', as: :average_speed
+  get 'workouts/average_per_week' => 'workouts#average_per_week', as: :average_per_week
+
   resources :workouts
 
   # The priority is based upon order of creation: first created -> highest priority.
