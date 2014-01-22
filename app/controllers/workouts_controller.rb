@@ -22,6 +22,16 @@ class WorkoutsController < ApplicationController
     end
   end
 
+  def statistics
+    @count = Workout.count
+    @average_speed = Workout.average_speed
+    @average_per_week = Workout.average_per_week
+    respond_to do |format|
+      format.json { render json: {count: @count, average_speed: @average_speed, average_per_week: @average_per_week}}
+    end
+
+  end
+
   # GET /workouts
   # GET /workouts.json
   def index

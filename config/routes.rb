@@ -4,6 +4,7 @@ Runnr::Application.routes.draw do
   get 'workouts/count' => 'workouts#count', as: :count
   get 'workouts/average_speed' => 'workouts#average_speed', as: :average_speed
   get 'workouts/average_per_week' => 'workouts#average_per_week', as: :average_per_week
+  get 'workouts/statistics' => 'workouts#statistics', as: :workout_statistics
 
   resources :workouts
 

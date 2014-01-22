@@ -2,3 +2,38 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+.big_number {
+  font-size: 80px;
+  line-height: 100%;
+  text-align: center;
+}
+
+.content {
+  position: absolute;
+  top: 0px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: silver;
+  padding-top: 10%;
+  border: 1px solid #d5d5d5;
+  background-color: #fff;
+  moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+}
+
+.canvas{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+
+.dummy{
+    padding-top: 50%;
+}
+
+.caption {
+  text-align: center;
+}
