@@ -60,7 +60,7 @@ class WorkoutsController < ApplicationController
     respond_to do |format|
       if @workout.save
         format.html { redirect_to @workout, notice: 'Workout was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @workout }
+        format.json { render json: @workout }
       else
         format.html { render action: 'new' }
         format.json { render json: @workout.errors, status: :unprocessable_entity }
