@@ -1,6 +1,6 @@
 class TimePeriod
 
-  attr_reader :hours, :minutes, :seconds
+  attr_accessor :hours, :minutes, :seconds
 
   def self.from_seconds(seconds)
     time = self.new
@@ -21,18 +21,6 @@ class TimePeriod
 
   def total_seconds
     @hours * 3600 + @minutes * 60 + @seconds
-  end
-
-  def hours=(hours)
-    @hours = hours
-  end
-
-  def minutes=(minutes)
-    @minutes = minutes
-  end
-
-  def seconds=(seconds)
-    @seconds = seconds
   end
 
   def hash
