@@ -18,7 +18,7 @@ class Workout < ActiveRecord::Base
   end
 
   def time_period=(string)
-    @time_period = TimePeriod.from_s(string)
+    self.duration = TimePeriod.from_s(string).total_seconds
   end
 
 end

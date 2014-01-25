@@ -60,7 +60,7 @@ class WorkoutsController < ApplicationController
     respond_to do |format|
       if @workout.save
         format.html { redirect_to @workout, notice: 'Workout was successfully created.' }
-        format.json { render json: @workout }
+        format.json { render json: @workout.attributes.merge(time_period: @workout.time_period.to_s) }
       else
         format.html { render action: 'new' }
         format.json { render json: @workout.errors, status: :unprocessable_entity }
@@ -100,6 +100,6 @@ class WorkoutsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def workout_params
-      params.require(:workout).permit(:date, :distance, :duration, :comment)
+      params.require(:workout).permit(:date, :distance, :duration, :comment, :time_period)
     end
 end

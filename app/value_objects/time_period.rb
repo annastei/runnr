@@ -3,6 +3,7 @@ class TimePeriod
   attr_accessor :hours, :minutes, :seconds
 
   def self.from_seconds(seconds)
+    return nil if seconds.nil?
     time = self.new
     time.hours, seconds = seconds.divmod(3600)
     time.minutes, seconds = seconds.divmod(60)
@@ -11,6 +12,7 @@ class TimePeriod
   end
 
   def self.from_s(string)
+    return nil if string.blank?
     time = self.new
     arr = string.split ':'
     time.seconds = arr.pop.to_i

@@ -15,7 +15,7 @@ $(document).ready(function(){
 
   $('form.ajax-form').on('ajax:success', function(evt, data, status, xhr){
     update_statistics();
-    $("#workout_list").append("<tr><td>" + data.date + "</td><td>" + data.distance + "</td><td>" + data.duration + "</td><td>" + data.comment + "</td><td><a class='btn btn-mini btn-danger' data-confirm='Are you sure?' data-method='delete' href='/workouts/" + data.id + "' rel='nofollow'>Delete</a></td></tr>")
+    $("#workout_list").append("<tr><td>" + data.date + "</td><td>" + data.distance + "</td><td>" + data.time_period + "</td><td>" + data.comment + "</td><td><a class='btn btn-mini btn-danger' data-confirm='Are you sure?' data-method='delete' href='/workouts/" + data.id + "' rel='nofollow'>Delete</a></td></tr>")
   })
 
   $(".tablesorter").tablesorter( {
