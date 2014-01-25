@@ -13,4 +13,12 @@ class Workout < ActiveRecord::Base
     self.count == 0 ? 0 : self.count.to_f / (Date.parse(self.maximum('date').to_s).cweek - Date.parse(self.minimum('date').to_s).cweek + 1)
   end
 
+  def time_period
+    @time_period ||= TimePeriod.from_seconds(duration)
+  end
+
+  def time_period=(string)
+    @time_period = TimePeriod.from_s(string)
+  end
+
 end

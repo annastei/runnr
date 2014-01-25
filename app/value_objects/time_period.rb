@@ -32,7 +32,7 @@ class TimePeriod
   end
 
   def to_s
-    "#{@hours}:#{@minutes}:#{@seconds}"
+    "#{"%02d" % @hours}:#{"%02d" % @minutes}:#{"%02d" % @seconds}"
   end
 
 end
