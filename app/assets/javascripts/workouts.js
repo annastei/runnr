@@ -22,12 +22,15 @@ $(document).ready(function(){
   });
 
   $(".tablesorter").tablesorter( {
-    headers: { 
+    headers: {
+            2: {
+                sorter: 'time'
+            },
             3: {
-                sorter: false 
+                sorter: false
             },
             4: {
-                sorter: false 
+                sorter: false
             }
         },
         sortList: [[0,1]]
