@@ -30,4 +30,9 @@ class TimePeriodTest < ActiveSupport::TestCase
     assert_equal 15, t1.seconds
   end
 
+  def test_total_seconds
+    t1 = TimePeriod.from_s "1:02:15"
+    assert_equal 3600 + 120 + 15, t1.total_seconds
+  end
+
 end

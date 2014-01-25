@@ -19,6 +19,10 @@ class TimePeriod
     time
   end
 
+  def total_seconds
+    @hours * 3600 + @minutes * 60 + @seconds
+  end
+
   def hours=(hours)
     @hours = hours
   end
