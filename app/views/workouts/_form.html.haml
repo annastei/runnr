@@ -1,8 +1,9 @@
-= form_for Workout.new, remote: true, format: :json, :html => { :class => 'ajax-form form-horizontal' } do |f|
+= form_for FormWorkout.new, remote: true, format: :json, :html => { :class => 'ajax-form form-horizontal' } do |f|
+  .errors
   .control-group
     = f.label :date, :class => 'control-label'
     .controls
-      = f.text_field :date, :class => 'datepicker'
+      = f.date_field :date, :class => 'datepicker'
   .control-group
     = f.label :distance, :class => 'control-label'
     .controls

@@ -63,7 +63,7 @@ class WorkoutsController < ApplicationController
         format.json { render json: @workout.attributes.merge(time_period: @workout.time_period.to_s) }
       else
         format.html { render action: 'new' }
-        format.json { render json: @workout.errors, status: :unprocessable_entity }
+        format.json { render json: @workout.errors.full_messages, status: :unprocessable_entity }
       end
     end
   end

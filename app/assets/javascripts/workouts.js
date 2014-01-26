@@ -18,6 +18,16 @@ $(document).ready(function(){
       $('form.ajax-form')[0].reset();
       update_statistics();
       $("#workout_list").append("<tr><td>" + data.date + "</td><td>" + data.distance + "</td><td>" + data.time_period + "</td><td>" + data.comment + "</td><td><a class='btn btn-mini btn-danger' data-confirm='Are you sure?' data-method='delete' href='/workouts/" + data.id + "' rel='nofollow'>Delete</a></td></tr>")
+    },
+    'ajax:error': function(evt, xhr, status, error){
+      var responseObject = $.parseJSON(xhr.responseText),
+          errors = $('<ul />');
+
+      $.each(responseObject, function(){
+        errors.append('<li>' + this + '</li>');
+      })
+
+      $(this).find('.errors').html(errors);
     }
   });
 
@@ -34,6 +44,6 @@ $(document).ready(function(){
             }
         },
         sortList: [[0,1]]
-  })
+  });
 
 });
