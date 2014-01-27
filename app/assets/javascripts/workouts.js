@@ -46,4 +46,6 @@ $(document).ready(function(){
         sortList: [[0,1]]
   });
 
+  $('.datepicker').datepicker({dateFormat: "yy-mm-dd", firstDay: 1}).datepicker("setDate", "0");
+
 });
