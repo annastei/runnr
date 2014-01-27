@@ -6,10 +6,11 @@ class Workout < ActiveRecord::Base
   validate :duration_must_be_larger_than_zero, on: :create
 
   def self.from_form(form_workout)
-    workout = Workout.new
+    workout = self.new
     ['date', 'distance', 'time_period', 'comment'].each do |attr|
-      send("#{attr}=", form_workout.send(attr))
+      workout.send("#{attr}=", form_workout.send(attr))
     end
+    workout
   end
 
   def self.average_speed
@@ -29,7 +30,7 @@ class Workout < ActiveRecord::Base
   end
 
   def duration_must_be_larger_than_zero
-    if duration <= 0
+    if duration && duration <= 0
       errors.add(:time_period, "must be greater than zero")
     end
   end
