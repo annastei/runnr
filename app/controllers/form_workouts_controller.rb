@@ -7,14 +7,21 @@ class FormWorkoutsController < ApplicationController
   def create
     @form_workout = FormWorkout.new(form_workout_params)
 
-    respond_to do |format|
-      if @form_workout.valid?
-        @workout = Workout.from_form @form_workout
-        #@workout.valid?
+    if @form_workout.valid?
+      @workout = Workout.from_form @form_workout
 
-        format.html { redirect_to @workout, notice: 'Workout was successfully created.' }
-        format.json { render json: @workout.attributes.merge(time_period: @workout.time_period.to_s) }
-      else
+      respond_to do |format|
+        #@workout.valid?
+        if @workout.save
+          format.html { redirect_to @workout, notice: 'Workout was successfully created.' }
+          format.json { render json: @workout.attributes.merge(time_period: @workout.time_period.to_s) }
+        else
+          format.html { render action: 'new' }
+          format.json { render json: @workout.errors.full_messages, status: :unprocessable_entity }
+        end
+      end
+    else
+      respond_to do |format|
         format.html { render action: 'new' }
         format.json { render json: @form_workout.errors.full_messages, status: :unprocessable_entity }
       end
