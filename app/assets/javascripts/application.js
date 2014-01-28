@@ -10,12 +10,10 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require_self
 //= require jquery
 //= require jquery.ui.datepicker
+//= require jquery-tablesorter
 //= require jquery_ujs
-//= require jquery.tablesorter.min
 //= require twitter/bootstrap
 //= require turbolinks
-//= require workouts
 //= require_tree .

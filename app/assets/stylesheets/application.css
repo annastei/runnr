@@ -10,5 +10,6 @@
  *
  *= require_self
  *= require jquery.ui.datepicker
+ *= require jquery-tablesorter/theme.default
  *= require_tree .
  */
