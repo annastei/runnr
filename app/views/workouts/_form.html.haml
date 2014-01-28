@@ -1,5 +1,5 @@
 = form_for FormWorkout.new, remote: true, format: :json, :html => { :class => 'ajax-form form-horizontal' } do |f|
-  .errors
+  .errors.alert.alert-danger.hide
   .control-group
     = f.label :date, :class => 'control-label'
     .controls
