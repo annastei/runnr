@@ -13,7 +13,9 @@
 //= require jquery
 //= require jquery.ui.datepicker
 //= require jquery_ujs
+//= require jquery.tablesorter.min
 //= require twitter/bootstrap
 //= require turbolinks
-//= require_tree .
+//= require workouts
+//= require_self
 
