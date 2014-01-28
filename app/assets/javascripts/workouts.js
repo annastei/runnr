@@ -48,4 +48,5 @@ $(document).ready(function(){
 
   $('.datepicker').datepicker({dateFormat: "yy-mm-dd", firstDay: 1}).datepicker("setDate", "0");
 
+
 });
