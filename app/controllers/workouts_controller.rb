@@ -4,21 +4,21 @@ class WorkoutsController < ApplicationController
   def count
     @count = Workout.count
     respond_to do |format|
-      format.json { render json: @count }
+      format.json { render json: {count: @count}}
     end
   end
 
   def average_speed
     @average_speed = Workout.average_speed
     respond_to do |format|
-      format.json { render json: @average_speed}
+      format.json { render json: {average_speed: @average_speed}}
     end
   end
 
   def average_per_week
     @average_per_week = Workout.average_per_week
     respond_to do |format|
-      format.json { render json: @average_per_week}
+      format.json { render json: {average_per_week: @average_per_week}}
     end
   end
 
@@ -100,6 +100,6 @@ class WorkoutsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def workout_params
-      params.require(:workout).permit(:date, :distance, :duration, :comment, :time_period)
+      params.require(:workout).permit(:date, :distance, :duration, :comment, :duration_string)
     end
 end

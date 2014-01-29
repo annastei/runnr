@@ -3,15 +3,9 @@ class Workout < ActiveRecord::Base
   validates :date, presence: true
   validates :distance, presence: true, numericality: true
   validates :comment, length: { maximum: 500 }
-  validate :duration_must_be_larger_than_zero, on: :create
+  validate :duration_string_format, on: :create
 
-  def self.from_form(form_workout)
-    workout = self.new
-    ['date', 'distance', 'time_period', 'comment'].each do |attr|
-      workout.send("#{attr}=", form_workout.send(attr))
-    end
-    workout
-  end
+  attr_accessor :duration_string
 
   def self.average_speed
     self.count == 0 ? 0 : self.sum('distance') / (self.sum('duration') / 3600.0)
@@ -26,12 +20,19 @@ class Workout < ActiveRecord::Base
   end
 
   def time_period=(string)
-    self.duration = TimePeriod.from_s(string).total_seconds
+    self.duration = TimePeriod.from_s(string).total_seconds if !string.blank?
   end
 
-  def duration_must_be_larger_than_zero
-    if duration && duration <= 0
-      errors.add(:time_period, "must be greater than zero")
+  def duration_string=(string)
+    if !string.blank?
+      @duration_string = string
+      self.time_period = string
+    end
+  end
+
+  def duration_string_format
+    if !duration_string.nil? && duration_string !~ /\A([0-9]+:){0,2}[0-9]+\z/
+      errors.add(:duration, "must be on the format hh:mm:ss, mm:ss or ss")
     end
   end
 
