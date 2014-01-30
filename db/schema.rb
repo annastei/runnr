@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140117192016) do
+ActiveRecord::Schema.define(version: 20140130183405) do
 
   create_table "workouts", force: true do |t|
-    t.datetime "date"
+    t.date     "date"
     t.float    "distance"
     t.integer  "duration"
     t.text     "comment"
