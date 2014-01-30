@@ -41,7 +41,7 @@
           - @workouts.each do |workout|
             %tr
               -#%td= link_to workout.id, workout_path(workout)
-              %td= l workout.date.to_date, format: :short
+              %td= l workout.date.to_date
               %td= workout.distance
               %td= workout.time_period
               %td= workout.comment
