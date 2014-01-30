@@ -4,6 +4,7 @@ class Workout < ActiveRecord::Base
   validates :distance, presence: true, numericality: true
   validates :comment, length: { maximum: 500 }
   validate :duration_string_format, on: :create
+  validates :duration, presence: true, numericality: { only_integer: true, greater_than: 0 }
 
   attr_accessor :duration_string
 
