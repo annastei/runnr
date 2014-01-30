@@ -9,19 +9,19 @@
       .dummy
       .content
         #count.big_number
-        .caption pass totalt
+        .caption total runs
   .span4
     .canvas
       .dummy
       .content
         #average_speed.big_number
-        .caption medelhastighet
+        .caption average speed
   .span4
     .canvas
       .dummy
       .content
         #average_per_week.big_number
-        .caption pass i snitt per vecka
+        .caption average runs per week
 
 .row
   .span12
@@ -40,7 +40,6 @@
         %tbody#workout_list
           - @workouts.each do |workout|
             %tr
-              -#%td= link_to workout.id, workout_path(workout)
               %td= l workout.date.to_date
               %td= workout.distance
               %td= workout.time_period
