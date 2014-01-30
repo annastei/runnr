@@ -13,26 +13,6 @@ $(document).ready(function(){
 
   update_statistics();
 
-  $('form.ajax-form').on({
-    'ajax:success': function(evt, data, status, xhr ){
-      $('form.ajax-form')[0].reset();
-      $(this).find('.errors').hide();
-      update_statistics();
-      $("#workout_list").append("<tr><td>" + data.date + "</td><td>" + data.distance + "</td><td>" + data.time_period + "</td><td>" + data.comment + "</td><td><a class='btn btn-mini btn-danger' data-confirm='Are you sure?' data-method='delete' href='/workouts/" + data.id + "' rel='nofollow'>Delete</a></td></tr>")
-    },
-    'ajax:error': function(evt, xhr, status, error){
-      var responseObject = $.parseJSON(xhr.responseText),
-          errors = $('<ul />');
-
-      $.each(responseObject, function(){
-        errors.append('<li>' + this + '</li>');
-      })
-
-      $(this).find('.errors').html(errors);
-      $(this).find('.errors').show();
-    }
-  });
-
   $(".tablesorter").tablesorter( {
     headers: {
             2: {
@@ -48,7 +28,7 @@ $(document).ready(function(){
         sortList: [[0,1]]
   });
 
-  $('.datepicker').datepicker({dateFormat: "yy-mm-dd", firstDay: 1}).datepicker("setDate", "0");
+  $('.datepicker').datepicker({dateFormat: "yy-mm-dd", firstDay: 1});
 
 
 });

@@ -35,6 +35,7 @@ class WorkoutsController < ApplicationController
   # GET /workouts
   # GET /workouts.json
   def index
+    @workout = Workout.new
     @workouts = Workout.all
   end
 
@@ -56,14 +57,15 @@ class WorkoutsController < ApplicationController
   # POST /workouts.json
   def create
     @workout = Workout.new(workout_params)
+    @workouts = Workout.all
 
     respond_to do |format|
       if @workout.save
-        format.html { redirect_to @workout, notice: 'Workout was successfully created.' }
-        format.json { render json: @workout.attributes.merge(time_period: @workout.time_period.to_s) }
+        format.html { redirect_to workouts_url, notice: 'Workout was successfully created.' }
+        format.json { render json: @workout.attributes }
       else
-        format.html { render action: 'new' }
-        format.json { render json: @workout.errors.full_messages, status: :unprocessable_entity }
+        format.html { render action: 'index' }
+        format.json { render json: @workout.errors, status: :unprocessable_entity }
       end
     end
   end
